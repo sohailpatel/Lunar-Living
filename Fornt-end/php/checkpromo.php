@@ -1,0 +1,49 @@
+<?php
+    if (isset($_GET["promocode"])) {
+        session_start();
+        $username = $_SESSION['username'];
+        $promocode = $_GET['promocode'];
+        $amount = $_SESSION['amount'];
+        //setup the request, you can also use CURLOPT_URL
+        $ch = curl_init('https://lunar-living.herokuapp.com/applyPromoCode');
+
+        // Returns the data/output as a string instead of raw data
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Good practice to let people know who's accessing their servers. See https://en.wikipedia.org/wiki/User_agent
+        curl_setopt($ch, CURLOPT_USERAGENT, 'YourScript/0.1 (contact@email)');
+
+
+        //set JSON data
+        $jsonData = array(
+            'promocode' => $promocode, 
+            'username' => $username,
+            'amount' => $amount
+        );
+
+        $jsonDataEncoded = json_encode($jsonData);
+
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+        $result = curl_exec($ch);
+        $newamount = json_decode($result)->amount;
+        curl_close($ch);
+        $message = "Promo Applied Successfully";
+        if($result == 'false'){
+            $message = "Failed";
+        }
+        else{
+            $_SESSION['amount'] = $newamount;
+        }
+        echo "<script type='text/javascript'>alert('$message');
+        window.location.href='paymentpage.php?promo=1';</script>";
+    }
+    else{
+        echo "<script type='text/javascript'>
+        window.location.href='index.php';</script>";
+    }
+?>

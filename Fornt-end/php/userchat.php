@@ -1,0 +1,25 @@
+<?php
+session_start();
+function loginForm(){
+    echo'
+    <div id="loginform">
+    <form action="chat.php" method="post">
+        <p>Please enter your email:</p>
+        <label for="name">Email:</label>
+        <input type="text" name="email" id="email" />
+        <p>Please enter your name to continue:</p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+        <input type="submit" name="enter" id="enter" value="Enter" />
+    </form>
+    </div>
+    ';
+}
+if(!isset($_SESSION['firstName'])){
+    loginForm();
+}
+else{
+    $_SESSION['chatuser'] = $_SESSION['username'];
+    header('Location: chat.php');
+}
+?>

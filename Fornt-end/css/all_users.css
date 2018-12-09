@@ -1,0 +1,173 @@
+.user_lease_info,
+.user_lease_info:after {
+  font-weight: 900;
+  color: #5045ec;
+  white-space: nowrap;
+  display: inline-block;
+  margin-left: 8%;
+  letter-spacing: 0.1em;
+  padding: 0.2em 0 0.25em 0;
+}
+
+.user_lease_info {
+  margin-left: 30%;
+  font-size: 4em;
+  z-index: 100;
+  text-shadow: 0.04em 0.04em 0 #9cb8b3;
+}
+
+.user_lease_info:after {
+  content: attr(data-shadow-text);
+  color: rgba(0, 0, 0, 0.35);
+  text-shadow: none;
+  position: absolute;
+  left: 0.0875em;
+  top: 0.0875em;
+  z-index: -1;
+  -webkit-mask-image: url(//f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
+}
+
+.side-col {
+  text-align: center;
+  color: #fdfdfd;
+}
+
+.container-block {
+  color: #fff;
+  display: inline-block;
+  margin: 2rem;
+  max-width: 500px;
+  position: relative;
+}
+.container-block::before {
+  background-color: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.container-block:hover .inner-block:before,
+.container-block:hover .slider-top-right:after {
+  height: 100%;
+}
+.container-block:hover .inner-block:after,
+.container-block:hover .slider-top-right:before {
+  width: 100%;
+}
+.container-block img {
+  display: block;
+  max-width: 100%;
+}
+
+.block-content {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  padding: 0 1rem;
+}
+
+.slider-top-right:before,
+.inner-block:after {
+  height: 4px;
+  transition: width 0.75s ease;
+  width: 0%;
+}
+
+.slider-top-right:after,
+.inner-block:before {
+  height: 0%;
+  transition: height 0.75s ease;
+  width: 4px;
+}
+
+.inner-block:before,
+.inner-block:after,
+.slider-top-right:before,
+.slider-top-right:after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.inner-block {
+  font-size: 2em;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.inner-block:before {
+  bottom: 0;
+  left: 0;
+}
+.inner-block:after {
+  bottom: 0;
+  right: 0;
+}
+
+.slider-top-right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.slider-top-right:before {
+  top: 0;
+  left: 0;
+}
+.slider-top-right:after {
+  top: 0;
+  right: 0;
+}
+.user_lease_info {
+  margin-left: 30%;
+  font-size: 4em;
+  /* z-index: 100; */
+  text-shadow: 0.04em 0.04em 0 #9cb8b3;
+}
+.table_flat {
+  margin-left: 15%;
+  width: 70%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.head_table {
+  background-color: #55608f;
+}
+.row_table_lease {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.background-mars-in-space {
+  background-image: url("../images/mars-wallpaper1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.button_payment {
+  background-color: Crimson;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5em;
+  text-decoration: none;
+  align-content: center;
+  margin-left: 10%;
+}
+.all_users_header {
+  margin-left: 40%;
+  font-size: 25px;
+  color: #ffb82c;
+}
+.promocode-bar {
+  margin-bottom: 4%;
+  margin-left: 25%;
+  line-height: 40px;
+  height: auto;
+  padding: 0 20px;
+}

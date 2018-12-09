@@ -1,0 +1,27 @@
+<?php
+    session_start();
+    $username = $_SESSION['chatuser'];
+    $ch = curl_init('https://lunar-living.herokuapp.com/checkUserStatus');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'YourScript/0.1 (contact@email)');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        "username: $username"
+        ));
+    $data = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    $apiData = json_decode($data);
+    curl_close($ch);
+
+    if($apiData != null){
+        if($apiData->readUser == 0){
+            echo"<span>Message Status: Read</span>";
+        }
+        else if($apiData->deliveredUser == 0 && $apiData->readUser == 1){
+            echo"<span>Message Status: Delivered</span>";
+        }
+        else{
+            echo"<span>Message Status: Sent</span>";
+        }
+    }
+?>
